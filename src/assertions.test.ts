@@ -1,4 +1,4 @@
-import { toEqual, Assertion, not } from "./assertions";
+import { toEqual, Assertion, not, toBe } from "./assertions";
 
 describe("assertions", () => {
   describe("not", () => {
@@ -28,6 +28,30 @@ describe("assertions", () => {
     });
   });
 
+  describe("toBe", () => {
+    it("should return passing assertion if values match", () => {
+      const expected = {};
+      const actual = expected;
+
+      expect(toBe(expected)(actual)).toEqual({
+        value: actual,
+        pass: true,
+        message: `{} is {}`,
+      });
+    });
+
+    it("should return failing assertion if values don't match", () => {
+      const expected = {};
+      const actual = {};
+
+      expect(toBe(expected)(actual)).toEqual({
+        value: actual,
+        pass: false,
+        message: `{} is {}`,
+      });
+    });
+  });
+
   describe("toEqual", () => {
     it("should return passing assertion if values match", () => {
       const expected = "expectedValue";
@@ -36,7 +60,7 @@ describe("assertions", () => {
       expect(toEqual(expected)(actual)).toEqual({
         value: actual,
         pass: true,
-        message: `expectedValue === expectedValue`,
+        message: `"expectedValue" === "expectedValue"`,
       });
     });
 
@@ -47,7 +71,7 @@ describe("assertions", () => {
       expect(toEqual(expected)(actual)).toEqual({
         value: actual,
         pass: false,
-        message: `actualValue === expectedValue`,
+        message: `"actualValue" === "expectedValue"`,
       });
     });
   });

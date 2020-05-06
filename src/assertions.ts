@@ -13,7 +13,15 @@ export const toEqual = <T>(expected: any) => (actual: T): Assertion<T> => {
   return {
     value: actual,
     pass: actual === expected,
-    message: `${actual} === ${expected}`,
+    message: `${JSON.stringify(actual)} === ${JSON.stringify(expected)}`,
+  };
+};
+
+export const toBe = <T>(expected: T) => (actual: T): Assertion<T> => {
+  return {
+    value: actual,
+    pass: Object.is(expected, actual),
+    message: `${JSON.stringify(actual)} is ${JSON.stringify(expected)}`,
   };
 };
 
