@@ -9,7 +9,7 @@ export interface Assertion<T> {
   message: string;
 }
 
-export const toEqual = <T>(expected: any) => (actual: T): Assertion<T> => {
+export const toEqual = <T>(expected: T) => (actual: T): Assertion<T> => {
   return {
     value: actual,
     pass: actual === expected,
