@@ -1,7 +1,7 @@
 import { AssertionFn, Assertion } from "./assertions";
 import { AssertionError } from "assert";
 
-function makeExpect<E extends Error>(
+export function makeExpect<E extends Error>(
   mapToError: (assertion: Assertion<any>) => E
 ) {
   function expect<T>(value: T, assertionFn: AssertionFn<T>): void {
