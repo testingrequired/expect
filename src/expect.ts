@@ -1,13 +1,20 @@
-import { AssertionFn } from "./assertions";
+import { AssertionFn, Assertion } from "./assertions";
 import { AssertionError } from "assert";
 
-export const expect = <T>(value: T, assertionFn: AssertionFn<T>): void => {
-  const assertion = assertionFn.call(null, value);
+function makeExpect<E extends Error>(
+  mapToError: (assertion: Assertion<any>) => E
+) {
+  function expect<T>(value: T, assertionFn: AssertionFn<T>): void {
+    const assertion = assertionFn.call(null, value);
 
-  if (!assertion.pass) {
-    throw new AssertionError({
-      actual: assertion.value,
-      message: assertion.message,
-    });
+    if (!assertion.pass) {
+      throw mapToError(assertion);
+    }
   }
-};
+
+  return expect;
+}
+
+export const expect = makeExpect(
+  ({ value, message }) => new AssertionError({ actual: value, message })
+);
