@@ -22,4 +22,26 @@ describe("toEqual", () => {
       message: `"actualValue" === "expectedValue"`,
     });
   });
+
+  it("should return passing assertion if objects containing same keys/values", () => {
+    const expected = { foo: "bar" };
+    const actual = { foo: "bar" };
+
+    expect(toEqual(expected)(actual)).toEqual({
+      value: actual,
+      pass: true,
+      message: `{"foo":"bar"} === {"foo":"bar"}`,
+    });
+  });
+
+  it("should return passing assertion if arrays containing same values", () => {
+    const expected = [1, 2, 3];
+    const actual = [1, 2, 3];
+
+    expect(toEqual(expected)(actual)).toEqual({
+      value: actual,
+      pass: true,
+      message: `[1,2,3] === [1,2,3]`,
+    });
+  });
 });
