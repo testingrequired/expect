@@ -58,6 +58,54 @@ expect(null, toBeNull); // True
 expect([1, 2, 3], toBeNull); // False
 ```
 
+#### toBeTrue
+
+Assert referential equality to `true`:
+
+```javascript
+import { expect, toBeTrue } from "@testingrequired/expect";
+
+expect(true, toBeTrue); // True
+expect(1, toBeTrue); // False
+expect([1, 2, 3], toBeTrue); // False
+```
+
+#### toBeTruthy
+
+Assert truthy value:
+
+```javascript
+import { expect, toBeTruthy } from "@testingrequired/expect";
+
+expect(true, toBeTruthy); // True
+expect([1, 2, 3], toBeTruthy); // True
+expect(0, toBeTruthy); // False
+```
+
+#### toBeFalse
+
+Assert referential equality to `false`:
+
+```javascript
+import { expect, toBeFalse } from "@testingrequired/expect";
+
+expect(false, toBeFalse); // True
+expect(0, toBeFalsy); // False
+expect([1, 2, 3], toBeFalse); // False
+```
+
+#### toBeFalsy
+
+Assert truthy value:
+
+```javascript
+import { expect, toBeFalsy } from "@testingrequired/expect";
+
+expect(false, toBeFalsy); // True
+expect(0, toBeFalsy); // True
+expect(1, toBeFalsy); // False
+```
+
 #### toEqual
 
 Assert value equality:
