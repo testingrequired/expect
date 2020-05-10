@@ -15,3 +15,7 @@ export { toEqual } from "./toEqual";
 export { toThrow } from "./toThrow";
 export { toBeUndefined } from "./toBeUndefined";
 export { toBeNull } from "./toBeNull";
+export { toBeFalse } from "./toBeFalse";
+export { toBeFalsy } from "./toBeFalsy";
+export { toBeTrue } from "./toBeTrue";
+export { toBeTruthy } from "./toBeTruthy";
