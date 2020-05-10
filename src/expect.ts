@@ -4,15 +4,14 @@ import { AssertionError } from "assert";
 export function makeExpect<E extends Error>(
   mapToError: (assertion: Assertion<any>) => E
 ) {
-  function expect<T>(value: T, assertionFn: AssertionFn<T>): void {
+  return function expect<T>(value: T, assertionFn: AssertionFn<T>): void {
     const assertion = assertionFn.call(null, value);
 
     if (!assertion.pass) {
-      throw mapToError(assertion);
+      const error = mapToError.call(null, assertion);
+      throw error;
     }
-  }
-
-  return expect;
+  };
 }
 
 export const expect = makeExpect(
