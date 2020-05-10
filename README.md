@@ -90,7 +90,7 @@ Assert referential equality to `false`:
 import { expect, toBeFalse } from "@testingrequired/expect";
 
 expect(false, toBeFalse); // True
-expect(0, toBeFalsy); // False
+expect(0, toBeFalse); // False
 expect([1, 2, 3], toBeFalse); // False
 ```
 
