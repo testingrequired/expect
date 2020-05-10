@@ -106,6 +106,22 @@ expect(0, toBeFalsy); // True
 expect(1, toBeFalsy); // False
 ```
 
+#### toBeInstanceOf
+
+Assert equality to `instanceof`:
+
+```javascript
+import { expect, toBeInstanceOf } from "@testingrequired/expect";
+
+class CustomError extends Error {}
+
+const error = new CustomError();
+
+expect(error, toBeInstanceOf(CustomError)); // True
+expect(error, toBeInstanceOf(Error)); // True
+expect(error, toBeInstanceOf(String)); // False
+```
+
 #### toEqual
 
 Assert value equality:

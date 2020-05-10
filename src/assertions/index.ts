@@ -19,3 +19,4 @@ export { toBeFalse } from "./toBeFalse";
 export { toBeFalsy } from "./toBeFalsy";
 export { toBeTrue } from "./toBeTrue";
 export { toBeTruthy } from "./toBeTruthy";
+export { toBeInstanceOf } from "./toBeInstanceOf";
