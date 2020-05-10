@@ -47,6 +47,17 @@ expect(undefined, toBeUndefined); // True
 expect([1, 2, 3], toBeUndefined); // False
 ```
 
+#### toBeNull
+
+Assert referential equality to `null`:
+
+```javascript
+import { expect, toBeNull } from "@testingrequired/expect";
+
+expect(null, toBeNull); // True
+expect([1, 2, 3], toBeNull); // False
+```
+
 #### toEqual
 
 Assert value equality:
