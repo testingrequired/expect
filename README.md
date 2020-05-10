@@ -36,6 +36,17 @@ expect(value, toBe(value)); // True
 expect(value, toBe({ foo: "bar" })); // False
 ```
 
+#### toBeUndefined
+
+Assert referential equality to `undefined`:
+
+```javascript
+import { expect, toBeUndefined } from "@testingrequired/expect";
+
+expect(undefined, toBeUndefined); // True
+expect([1, 2, 3], toBeUndefined); // False
+```
+
 #### toEqual
 
 Assert value equality:
