@@ -1,7 +1,7 @@
 import { toBeNull } from "./toBeNull";
 
 describe("toBeNull", () => {
-  it("should return passing assertion if undefined", () => {
+  it("should return passing assertion if null", () => {
     expect(toBeNull(null)).toEqual({
       value: null,
       pass: true,
@@ -9,7 +9,7 @@ describe("toBeNull", () => {
     });
   });
 
-  it("should return passing assertion if not undefined", () => {
+  it("should return passing assertion if not null", () => {
     const expected = "expectedValue";
 
     expect(toBeNull(expected)).toEqual({
