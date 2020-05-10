@@ -1,4 +1,4 @@
-import { AssertionFn, Assertion } from "../assertions";
+import { AssertionFn, Assertion } from "./index";
 
 export const not = <T>(assertionFn: AssertionFn<T>) => (
   value: any

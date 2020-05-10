@@ -1,4 +1,4 @@
-import { Assertion } from "../assertions";
+import { Assertion } from "./index";
 
 export const toBe = <T>(expected: T) => (actual: T): Assertion<T> => {
   return {

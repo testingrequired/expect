@@ -1,4 +1,4 @@
-import { Assertion } from "../assertions";
+import { Assertion } from "./index";
 
 export const toThrow = <T>(errorMatching?: string | Error) => (
   value: any
