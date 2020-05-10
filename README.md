@@ -13,6 +13,16 @@ expect("foo", not(toEqual("bar")));
 
 ### Assertions
 
+#### not
+
+Invert assertion function:
+
+```javascript
+import { expect, not, toEqual } from "@testingrequired/expect";
+
+expect(10, not(toEqual(100)));
+```
+
 #### toBe
 
 Assert referential equality:
@@ -55,14 +65,4 @@ const fn = () => {
 expect(fn, toThrow()); // True
 expect(fn, toThrow(expectedErrorMessage)); // True
 expect(fn, toThrow(new CustomError(expectedErrorMessage))); // True
-```
-
-#### not
-
-Invert assertion function:
-
-```javascript
-import { expect, not, toEqual } from "@testingrequired/expect";
-
-expect(10, not(toEqual(100)));
 ```
