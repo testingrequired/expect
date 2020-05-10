@@ -1,4 +1,4 @@
-import { Assertion } from "../assertions";
+import { Assertion } from "./index";
 import { not } from "./not";
 
 describe("not", () => {
